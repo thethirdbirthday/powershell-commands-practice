@@ -1,0 +1,12 @@
+(Get-Date).Date
+(Get-Date).DayOfWeek
+
+$hosts = Get-Content -Path D:\powershelldemo\hosts.txt
+$hosts | ForEach-Object {
+    Write-Host "Testing Host: $($_)"
+    "$(Get-Date): Testing Host $($_)." | Out-File host_test.log -Append
+    Test-NetConnection -ComputerName $_ -Port 443
+    Test-NetConnection -ComputerName $_ -Port 80
+    Write-Host ""
+}
+#Tests for open port numbers and provides date when tested 

@@ -1,0 +1,2 @@
+$hosts = Get-Content -Path D:\powershelldemo\hosts.txt
+Write-Host -BackgroundColor Cyan -ForegroundColor DarkMagenta "Henry here!"

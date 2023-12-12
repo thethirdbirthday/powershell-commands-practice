@@ -9,5 +9,5 @@ $hosts | ForEach-Object {
     "Hostname: $($_)" | Out-File outputhosts.txt -Append
 }
 
-$hoststatus = Test-NetConnection -ComputerName www.google.com
-# runs pings on each item in hosts variable
+$hoststatus = Test-NetConnection -ComputerName www.google.com - PortNumber 443
+# tests if port 443 is open for google.com

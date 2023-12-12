@@ -1,0 +1,10 @@
+$hosts = Get-Content -Path D:\powershelldemo\hosts.txt
+
+$hosts | ForEach-Object {
+    Write-Host "Testing Host: $($_)"
+    Test-NetConnection -ComputerName $_ -port 443
+    Test-NetConnection -ComputerName $_ -port 80
+    Write-Host ""
+}
+#Tests for all websites listed in hosts variable at both port numbers 443 and 80
+#Check for a bunch of hosts at once
