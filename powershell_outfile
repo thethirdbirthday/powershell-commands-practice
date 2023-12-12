@@ -1,0 +1,9 @@
+"Hey, Henry here!" | Out-File test.txt -Append
+#Append will add onto a file that is already there
+#Good for writing logs
+
+$hosts = Get-Content hosts.txt
+$hosts | ForEach-Object {
+    "Hostname: $($_)" | Out-File outputhosts.txt -Append
+}
+#when run, data from hosts variable will be inserted into new outputhosts file

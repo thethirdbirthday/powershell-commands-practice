@@ -1,0 +1,13 @@
+powershell
+
+#'a ping on steroids'
+Test-NetConnection -ComputerName www.youtube.com 
+#gives you IP, ping success or fail, latency: status of website
+
+$hosts = Get-Content -Path D:\powershelldemo\hosts.txt
+$hosts | ForEach-Object {
+    "Hostname: $($_)" | Out-File outputhosts.txt -Append
+}
+
+$hoststatus = Test-NetConnection -ComputerName www.google.com
+# runs pings on each item in hosts variable
